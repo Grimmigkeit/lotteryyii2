@@ -11,7 +11,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <p>No, you can't.</p>
     
-    <a href="#" class="random-btn">Some random button. Press it!</a>
+    <button href="#" class="random-btn -random">Some random button. Press it!</button>
 
-    
 </div>
