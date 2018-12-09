@@ -20,10 +20,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'lottery'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'lottery'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -124,5 +124,15 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+     /**
+     * Displays lottery page.
+     *
+     * @return string
+     */
+    public function actionLottery()
+    {
+        return $this->render('lottery');
     }
 }

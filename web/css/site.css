@@ -113,3 +113,43 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/* lottery */
+
+.site-lottery .random-btn {
+    padding: 8px 5px 3px 5px;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 0 0 1px transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    background: rgba(230,36,14,1);
+    background: -moz-linear-gradient(top, rgba(230,36,14,1) 0%, rgba(231,76,59,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(230,36,14,1)), color-stop(100%, rgba(231,76,59,1)));
+    background: -webkit-linear-gradient(top, rgba(230,36,14,1) 0%, rgba(231,76,59,1) 100%);
+    background: -o-linear-gradient(top, rgba(230,36,14,1) 0%, rgba(231,76,59,1) 100%);
+    background: -ms-linear-gradient(top, rgba(230,36,14,1) 0%, rgba(231,76,59,1) 100%);
+    background: linear-gradient(to bottom, rgba(230,36,14,1) 0%, rgba(231,76,59,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6240e', endColorstr='#e74c3b', GradientType=0 );
+    border: none;
+        border-right-color: currentcolor;
+        border-right-style: none;
+        border-right-width: medium;
+        border-bottom-color: currentcolor;
+        border-bottom-style: none;
+        border-bottom-width: medium;
+    border-right: 2px solid #c22110;
+    border-bottom: 3px solid #c22110;
+    opacity: 1;
+    margin-top: 8px;
+    margin-bottom: 0;
+    width: 150px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+.site-lottery .random-btn:hover {
+    opacity: .85;
+}
