@@ -111,7 +111,7 @@ class Lottery extends Model
         if ($lottery['money']) {
 
             $fields = [
-                'points' => $lottery['money'] * self::MONEY_COEFFICIENT,
+                'points' => number_format($lottery['money'] * self::MONEY_COEFFICIENT, 0, '', ''),
                 'money' => NULL,
             ];
 
@@ -122,5 +122,23 @@ class Lottery extends Model
 
             return $lottery;
         }
+    }
+
+    /**
+     * Convert money to points
+     */
+    public function refusePrize()
+    {
+        $userId = Yii::$app->user->getId();
+
+        $fields = [
+            'points' => NULL,
+            'money' => NULL,
+            'prize' => NULL,
+        ];
+
+        $this->updateLottery($fields, $userId);
+
+        return $fields;
     }
 }

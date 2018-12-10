@@ -23,7 +23,7 @@ class PostController extends Controller
                 'only' => [],
                 'rules' => [
                     [
-                        'actions' => ['lottery', 'convert-money'],
+                        'actions' => ['lottery', 'convert-money', 'refuse-prize'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -57,7 +57,7 @@ class PostController extends Controller
     /**
      * Get and set random prize.
      *
-     * @return Response|string
+     * @return Response|json
      */
     public function actionLottery()
     {
@@ -69,15 +69,29 @@ class PostController extends Controller
     }
 
     /**
-     * 
+     * Convert money to points
      *
-     * @return Response|string
+     * @return Response|json
      */
     public function actionConvertMoney()
     {
         $model = new Lottery();
 
         if ($res = $model->convertMoney()) {
+            return $this->asJson($res);
+        }
+    }
+
+    /**
+     * Refuse prizes
+     *
+     * @return Response|json
+     */
+    public function actionRefusePrize()
+    {
+        $model = new Lottery();
+
+        if ($res = $model->refusePrize()) {
             return $this->asJson($res);
         }
     }

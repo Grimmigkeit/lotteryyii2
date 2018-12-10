@@ -6,9 +6,11 @@ use yii\helpers\Html;
 
 $this->title = 'Lottery. You can win something big!';
 $this->params['breadcrumbs'][] = $this->title;
-$class='hidden';
-if ($this->params['lottery']['money']) $class='';
+$classConvert = $classRefuse = 'hidden';
+if ($this->params['lottery']['money']) $classConvert = '';
+if ($this->params['lottery']['money'] || $this->params['lottery']['prize'] || $this->params['lottery']['points']) $classRefuse = '';
 ?>
+
 <div class="site-lottery">
     <h1><?= Html::encode($this->title) ?></h1>
     <p>No, you can't.</p>
@@ -21,6 +23,8 @@ if ($this->params['lottery']['money']) $class='';
     	prize: <span class="-prize"><?= Html::encode($this->params['lottery']['prize']) ?></span> <br>
     </p>
     
-    <button href="#" class="lt-btn -convert <?=$class?>">Convert money to points</button>
+    <button href="#" class="lt-btn -convert <?=$classConvert?>">Convert money to points</button>
+
+    <button href="#" class="lt-btn -refuse <?=$classRefuse?>">Refuse prizes</button>
     
 </div>

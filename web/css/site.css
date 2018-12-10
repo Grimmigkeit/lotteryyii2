@@ -150,6 +150,7 @@ a.desc:after {
     color: #fff;
     text-decoration: none;
     margin-bottom: 25px;
+    min-height: 55px;
 }
 .site-lottery .lt-btn:hover {
     opacity: .85;
