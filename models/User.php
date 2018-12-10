@@ -134,5 +134,14 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->auth_key = Yii::$app->security->generateRandomString();
     }
+
+    /**
+     * Get all users id
+     * return array
+     */
+    public function getAllUsersId()
+    {
+        return static::find()->select('id')->all();
+    }
  
 }
