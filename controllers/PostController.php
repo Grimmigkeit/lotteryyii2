@@ -63,7 +63,7 @@ class PostController extends Controller
     {
         $model = new Lottery();
 
-        if ($res = $model->setPrize()) {
+        if ($res = $model->startLottery()) {
             return $this->asJson($res);
         }
     }

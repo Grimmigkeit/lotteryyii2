@@ -17,6 +17,13 @@ class Lottery extends Model
     const PRIZE_LIST = array('phone', 'mouse', 'keyboard', 'monitor', 'notebook'); // todo get from config(file or db)
     const MONEY_COEFFICIENT = 0.6;
 
+    public function startLottery()
+    {
+        $this->randomPrize();
+
+        return $this->setPrize();
+    }
+
     /**
      * Set prize from lottery to current user
      * @return bool
@@ -28,8 +35,6 @@ class Lottery extends Model
         if (!$userId) {
             return false;
         }
-
-        $this->randomPrize();
 
         $fields = [
             'points' => $this->points ? $this->points : NULL,
@@ -115,13 +120,15 @@ class Lottery extends Model
                 'money' => NULL,
             ];
 
-            $lottery['money'] = NULL;
-            $lottery['points'] = $fields['points'];
+            $this->money = $lottery['money'] = NULL;
+            $this->points = $lottery['points'] = $fields['points'];
 
             $this->updateLottery($fields, $userId);
 
             return $lottery;
         }
+
+        return false;
     }
 
     /**
