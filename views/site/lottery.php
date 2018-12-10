@@ -6,11 +6,21 @@ use yii\helpers\Html;
 
 $this->title = 'Lottery. You can win something big!';
 $this->params['breadcrumbs'][] = $this->title;
+$class='hidden';
+if ($this->params['lottery']['money']) $class='';
 ?>
 <div class="site-lottery">
     <h1><?= Html::encode($this->title) ?></h1>
     <p>No, you can't.</p>
     
-    <button href="#" class="random-btn -random">Some random button. Press it!</button>
+    <button href="#" class="lt-btn -random">Some random button. Press it!</button>
 
+    <p class="result -result">
+    	points: <span class="-points"><?= Html::encode($this->params['lottery']['points']) ?></span> <br>
+    	money: <span class="-money"><?= Html::encode($this->params['lottery']['money']) ?></span> <br>
+    	prize: <span class="-prize"><?= Html::encode($this->params['lottery']['prize']) ?></span> <br>
+    </p>
+    
+    <button href="#" class="lt-btn -convert <?=$class?>">Convert money to points</button>
+    
 </div>

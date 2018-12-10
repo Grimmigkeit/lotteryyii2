@@ -116,7 +116,7 @@ a.desc:after {
 
 /* lottery */
 
-.site-lottery .random-btn {
+.site-lottery .lt-btn {
     padding: 8px 5px 3px 5px;
     display: inline-block;
     vertical-align: middle;
@@ -149,7 +149,11 @@ a.desc:after {
     text-align: center;
     color: #fff;
     text-decoration: none;
+    margin-bottom: 25px;
 }
-.site-lottery .random-btn:hover {
+.site-lottery .lt-btn:hover {
     opacity: .85;
+}
+.site-lottery .hidden {
+    display: none;
 }

@@ -22,12 +22,11 @@ class Lottery extends Model
      * @return bool
      */
     public function setPrize()
-    {   
+    {
         $userId = Yii::$app->user->getId();
 
         if (!$userId) {
             return false;
-
         }
 
         $this->randomPrize();
@@ -116,7 +115,12 @@ class Lottery extends Model
                 'money' => NULL,
             ];
 
+            $lottery['money'] = NULL;
+            $lottery['points'] = $fields['points'];
+
             $this->updateLottery($fields, $userId);
+
+            return $lottery;
         }
     }
 }

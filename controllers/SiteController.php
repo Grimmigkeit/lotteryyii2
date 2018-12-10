@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\User;
+use app\models\Lottery;
 
 class SiteController extends Controller
 {
@@ -133,6 +134,8 @@ class SiteController extends Controller
      */
     public function actionLottery()
     {
+        $model = new Lottery();
+        $this->view->params['lottery'] = $model->getByUserId(Yii::$app->user->getId());
         return $this->render('lottery');
     }
 }
