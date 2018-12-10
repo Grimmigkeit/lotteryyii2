@@ -138,4 +138,23 @@ class SiteController extends Controller
         $this->view->params['lottery'] = $model->getByUserId(Yii::$app->user->getId());
         return $this->render('lottery');
     }
+
+    public function actionAddAdmin() {
+
+        $model = User::find()->where(['username' => 'admin'])->one();
+
+        if (empty($model)) {
+
+            $user = new User();
+            $user->username = 'admin';
+            $user->email = 'admin@admin.admin';
+            $user->setPassword('admin');
+            $user->generateAuthKey();
+
+            if ($user->save()) {
+                echo 'good';
+            }
+
+        }
+    }
 }
